@@ -685,6 +685,25 @@ export default function HomePage() {
       >
         {darkTheme ? "Светлая тема" : "Тёмная тема"}
       </button>
+      <Link
+        href="/profile"
+        style={{
+          position: "fixed",
+          bottom: "72px",
+          left: "24px",
+          zIndex: 9990,
+          background: "#4f46e5",
+          color: "#ffffff",
+          borderRadius: "999px",
+          padding: "10px 16px",
+          fontSize: "13px",
+          fontWeight: "700",
+          textDecoration: "none",
+          boxShadow: "0 10px 25px rgba(79, 70, 229, 0.35)",
+        }}
+      >
+        Личный кабинет
+      </Link>
 
       {toastText && (
         <div
