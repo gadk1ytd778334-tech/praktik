@@ -1045,3 +1045,9 @@ html.dark-theme label {
   border-color: #475569 !important;
   color: #f8fafc !important;
 }
+html.dark-theme input[type="tel"],
+html.dark-theme input[type="email"] {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+  color: #f8fafc !important;
+}
