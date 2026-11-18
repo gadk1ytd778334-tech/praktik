@@ -173,10 +173,13 @@ const MOCK_PRODUCTS = [
     ),
   },
 ];
-export default async function HomePage({ searchParams }) {
-  const resolvedParams = (await searchParams) || {};
-  const query = (resolvedParams.q || "").toLowerCase().trim();
-  const selectedCategory = (resolvedParams.category || "").toLowerCase().trim();
+export function generateStaticParams() {
+  return [{ slug: "studio-pro" }, { slug: "series-x" }, { slug: "gan-65w" }];
+}
+
+export default function HomePage() {
+  const query = "";
+  const selectedCategory = "";
 
   const filteredProducts = MOCK_PRODUCTS.filter((item) => {
     const matchesQuery =

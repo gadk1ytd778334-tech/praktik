@@ -165,6 +165,10 @@ const INFO_PAGES = {
     ],
   },
 };
+export function generateStaticParams() {
+  return Object.keys(INFO_PAGES).map((slug) => ({ slug }));
+}
+
 export default async function InfoDetailPage({ params }) {
   const { slug } = await params;
   const page = INFO_PAGES[slug] || INFO_PAGES.about;

@@ -145,22 +145,71 @@ function InteractiveShopSection() {
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
   };
+  const [catalogProducts, setCatalogProducts] = useState(PRODUCTS);
 
-  const filteredProducts = PRODUCTS.filter((item) => {
-    const q = searchText.toLowerCase().trim();
-    const matchesQuery =
-      !q ||
-      item.title.toLowerCase().includes(q) ||
-      item.category.toLowerCase().includes(q);
-    const matchesCategory =
-      !selectedCategory || item.categorySlug === selectedCategory;
-    const matchesDiscount = !onlyDiscount || Boolean(item.oldPrice);
-    return matchesQuery && matchesCategory && matchesDiscount;
-  }).sort((a, b) => {
-    if (sortBy === "price-asc") return a.price - b.price;
-    if (sortBy === "price-desc") return b.price - a.price;
-    return b.rating - a.rating;
-  });
+  useEffect(() => {
+    const saved = localStorage.getItem("shoply_admin_products");
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const id = setTimeout(() => setCatalogProducts(parsed), 0);
+          return () => clearTimeout(id);
+        }
+      } catch {
+        // игнорируем
+      }
+    }
+
+    const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+    if (strapiUrl) {
+      fetch(`${strapiUrl}/api/products`)
+        .then((res) => (res.ok ? res.json() : null))
+        .then((json) => {
+          if (json?.data?.length) {
+            const mapped = json.data.map((entry, idx) => {
+              const attrs = entry.attributes || entry;
+              return {
+                id: entry.id || idx + 100,
+                slug: attrs.slug || "studio-pro",
+                title: attrs.title || "Гарнитура Shoply",
+                category: (attrs.category || "НАУШНИКИ").toUpperCase(),
+                categorySlug: attrs.categorySlug || "headphones",
+                price: Number(attrs.price) || 9990,
+                oldPrice: attrs.oldPrice ? Number(attrs.oldPrice) : null,
+                badge: attrs.badge || "НОВИНКА",
+                badgeColor: "#4f46e5",
+                rating: 4.9,
+                reviews: 24,
+                specs: attrs.specs || ["Гарантия 12 мес."],
+                bgGradient: "linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)",
+                icon: "headphones",
+              };
+            });
+            setCatalogProducts(mapped);
+          }
+        })
+        .catch(() => {});
+    }
+  }, []);
+
+  const filteredProducts = catalogProducts
+    .filter((item) => {
+      const q = searchText.toLowerCase().trim();
+      const matchesQuery =
+        !q ||
+        item.title.toLowerCase().includes(q) ||
+        item.category.toLowerCase().includes(q);
+      const matchesCategory =
+        !selectedCategory || item.categorySlug === selectedCategory;
+      const matchesDiscount = !onlyDiscount || Boolean(item.oldPrice);
+      return matchesQuery && matchesCategory && matchesDiscount;
+    })
+    .sort((a, b) => {
+      if (sortBy === "price-asc") return a.price - b.price;
+      if (sortBy === "price-desc") return b.price - a.price;
+      return b.rating - a.rating;
+    });
 
   return (
     <>
