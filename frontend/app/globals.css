@@ -1051,3 +1051,24 @@ html.dark-theme input[type="email"] {
   border-color: #475569 !important;
   color: #f8fafc !important;
 }
+/* Поддержка тёмной темы для блока глобальных новостей */
+html.dark-theme section[aria-label="Глобальный пульс цен на чипы и технику"] {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+html.dark-theme
+  section[aria-label="Глобальный пульс цен на чипы и технику"]
+  article {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+html.dark-theme
+  section[aria-label="Глобальный пульс цен на чипы и технику"]
+  button {
+  background-color: #0f172a !important;
+  border-color: #475569 !important;
+  color: #f8fafc !important;
+}
