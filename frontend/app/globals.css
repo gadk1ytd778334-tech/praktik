@@ -1072,3 +1072,19 @@ html.dark-theme
   border-color: #475569 !important;
   color: #f8fafc !important;
 }
+/* Исправление контраста кнопок и бокового меню справочника в тёмной теме */
+html.dark-theme article a[href="/#consultation"] {
+  background-color: #334155 !important;
+  color: #f8fafc !important;
+  border: 1px solid #475569 !important;
+}
+
+html.dark-theme aside a {
+  color: #cbd5e1 !important;
+}
+
+html.dark-theme aside a[style*="background: #4f46e5"],
+html.dark-theme aside a[style*="background: rgb(79, 70, 229)"] {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
