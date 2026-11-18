@@ -163,7 +163,7 @@ function InteractiveShopSection() {
 
   return (
     <>
-      <section style={{ marginBottom: "40px" }}>
+      <section id="categories" style={{ marginBottom: "40px" }}>
         <div
           style={{
             display: "flex",
@@ -656,7 +656,9 @@ export default function HomePage() {
           </a>
         </section>
 
-        <DailyCultConveyor />
+        <div id="sales">
+          <DailyCultConveyor />
+        </div>
 
         <Suspense fallback={<CatalogSkeleton />}>
           <InteractiveShopSection />
