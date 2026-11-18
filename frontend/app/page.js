@@ -9,6 +9,7 @@ import DailyCultConveyor from "@/components/DailyCultConveyor";
 import ProductIcon from "@/components/ProductIcon";
 import CatalogSkeleton from "@/components/CatalogSkeleton";
 import ConsultationBlock from "@/components/ConsultationBlock";
+import MarketPulseNews from "@/components/MarketPulseNews";
 
 const CATEGORIES = [
   {
@@ -665,6 +666,7 @@ export default function HomePage() {
         </Suspense>
 
         <ConsultationBlock />
+        <MarketPulseNews />
       </div>
 
       <SaleConveyorWidget />
