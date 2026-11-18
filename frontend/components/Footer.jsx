@@ -5,72 +5,72 @@ import { usePathname, useRouter } from "next/navigation";
 
 const MODAL_CONTENT = {
   about: {
-    title: "О платформе UnifiedStack",
-    text: "UnifiedStack — игровая экосистема нового поколения, объединяющая магазин лицензионных цифровых копий, облачный гейминг с минимальным пингом и единый профиль игрока.",
+    title: "О магазине гарнитуры Shoply",
+    text: "Shoply — специализированный магазин беспроводных наушников с активным шумоподавлением ANC, студийных гарнитур, умных часов и мощных GaN-зарядок с гарантией 12 месяцев.",
   },
-  developers: {
-    title: "Разработчикам и издателям",
-    text: "Публикуйте игры в каталоге UnifiedStack, подключайте облачный запуск без скачивания и управляйте релизами через единый кабинет партнёра.",
+  partners: {
+    title: "Партнёрам и поставщикам аудиотехники",
+    text: "Приглашаем к сотрудничеству бренды персонального аудио, производителей аксессуаров и логистических операторов для расширения сети пунктов выдачи.",
   },
   vacancies: {
-    title: "Карьера в UnifiedStack",
-    text: "Ищем инженеров облачной инфраструктуры (WebRTC / GPU-кластеры), Next.js-разработчиков и комьюнити-менеджеров. Резюме: jobs@unifiedstack.gg.",
+    title: "Вакансии в Shoply",
+    text: "Ищем консультантов-экспертов по персональному аудио, инженеров сервисного центра и frontend-разработчиков. Резюме: hr@shoply.ru.",
   },
   privacy: {
-    title: "Защита данных и безопасность аккаунта",
-    text: "Данные профиля, история транзакций внутреннего кошелька и сохранения облачных сессий защищены JWT-авторизацией и шифрованием.",
+    title: "Политика обработки персональных данных",
+    text: "Ваши контактные данные, адреса доставки и настройки мини-профиля используются исключительно для оформления заказов и работы бонусной программы по 152-ФЗ.",
   },
-  digitalSales: {
-    title: "Правила покупки цифровых копий",
-    text: "Лицензионные игры и дополнения (DLC) закрепляются за вашим аккаунтом навсегда сразу после оплаты и доступны для запуска в библиотеке.",
+  salesRules: {
+    title: "Правила продаж аудиотехники и гаджетов",
+    text: "Вся техника поставляется в заводской упаковке с пломбами. Перед оплатой курьеру вы можете проверить комплектацию, звук и подключение гарнитуры.",
   },
   terms: {
-    title: "Пользовательское соглашение",
-    text: "Условия использования магазина цифровых товаров, облачных игровых серверов, кастомизации мини-профиля и системы достижений UnifiedStack.",
+    title: "Правила пользования сайтом",
+    text: "Материалы каталога, спецификации гарнитур, обзоры цен на чипы памяти и личный кабинет предназначены для покупателей маркетплейса Shoply.",
   },
   recommendations: {
-    title: "Рекомендательные алгоритмы витрины",
-    text: "На платформе UnifiedStack применяются алгоритмы подбора игр дня, скидок недели и облачных тарифов на основе ваших жанровых предпочтений.",
+    title: "Рекомендательные технологии",
+    text: "На информационном ресурсе применяются алгоритмы подбора совместимых GaN-зарядок, кабелей и акционных предложений дня на основе просмотренных моделей.",
   },
-  serverStatus: {
-    title: "Статус серверов и дата-центров",
-    text: "Все кластеры облачного гейминга (Москва, Санкт-Петербург, Екатеринбург, Новосибирск) работают штатно. Средняя задержка: 11 мс, аптайм 99.98%.",
+  serviceCenters: {
+    title: "Авторизованные сервисные центры",
+    text: "Бесплатная диагностика, замена амбушюр, аккумуляторов и гарантийный ремонт гарнитур проводятся ежедневно с 09:00 до 21:00 по чеку из личного кабинета.",
   },
-  howToBuy: {
-    title: "Как купить игру или подписку",
-    text: "Выберите игру в каталоге или конвейере скидок, добавьте в корзину, оплатите с внутреннего кошелька или картой — игра мгновенно появится в вашей библиотеке.",
+  howToOrder: {
+    title: "Как оформить заказ",
+    text: "Выберите гарнитуру или аксессуар в каталоге, добавьте в корзину, при необходимости примените бонусные баллы из профиля и выберите удобный способ получения.",
   },
   payment: {
-    title: "Способы пополнения и оплаты",
-    text: "Пополнение кошелька UnifiedStack без комиссии через СБП, банковские карты, а также оплата накопленными бонусными баллами.",
+    title: "Способы оплаты",
+    text: "Оплата банковской картой онлайн, через Систему быстрых платежей (СБП) или наличными/картой курьеру после проверки гарнитуры.",
   },
-  cloudTariffs: {
-    title: "Тарифы облачного гейминга",
-    text: "Запускайте требовательные AAA-игры в 4K 120 FPS даже на слабом ноутбуке или смартфоне. Доступны почасовые пакеты и безлимитные подписки.",
+  credits: {
+    title: "Рассрочка 0-0-12 на гарнитуры и часы",
+    text: "Оформление рассрочки без переплат на срок от 3 до 12 месяцев онлайн за 2 минуты при покупке от 5 000 ₽.",
   },
-  activation: {
-    title: "Мгновенная активация в библиотеке",
-    text: "Цифровые копии не требуют ожидания доставки — доступ к скачиванию или облачному запуску открывается в течение 3 секунд после оплаты.",
+  delivery: {
+    title: "Доставка и примерка перед покупкой",
+    text: "Экспресс-доставка курьером в день заказа при оформлении до 16:00, а также самовывоз из пунктов выдачи по всей России.",
   },
-  refunds: {
-    title: "Возврат цифровых копий",
-    text: "Вы можете оформить возврат средств на кошелёк UnifiedStack в течение 14 дней с момента покупки, если время в игре составляет менее 2 часов.",
+  warranty: {
+    title: "Обмен, возврат и гарантия 12 месяцев",
+    text: "Официальная гарантия 1 год на всю электронику. Обмен или возврат устройства надлежащего качества в течение 14 дней с сохранением заводской упаковки.",
   },
-  techSupport: {
-    title: "Диагностика пинга и лаунчера",
-    text: "Проверьте скорость соединения до ближайшего облачного узла и настройки битрейта в разделе технической поддержки 24/7.",
+  repairStatus: {
+    title: "Проверка статуса ремонта гарнитуры",
+    text: "Актуальный статус сервисного обслуживания отображается в разделе «История заказов» вашего личного кабинета или по телефону 8 800 000-00-00.",
   },
-  cyberClubs: {
-    title: "Киберспортивным клубам и аренам",
-    text: "Специальные корпоративные лицензии, выделенные облачные слоты для турниров и централизованное управление аккаунтами для компьютерных клубов.",
+  b2b: {
+    title: "Корпоративным отделам и call-центрам",
+    text: "Оптовые поставки профессиональных гарнитур, спикерфонов и зарядных станций для офисов с выделением НДС и закрывающими документами через ЭДО.",
   },
   invoiceCheck: {
-    title: "Закрывающие документы для партнёров",
-    text: "Проверка счетов и актов для киберспортивных организаций и турнирных операторов по номеру договора: b2b@unifiedstack.gg.",
+    title: "Проверка счёта для юридических лиц",
+    text: "Уточнить статус оплаты счёта и отгрузки партии гарнитур можно по номеру заказа через корпоративный отдел b2b@shoply.ru.",
   },
-  giftCodes: {
-    title: "Подарочные коды и ваучеры",
-    text: "Подарите другу пополнение кошелька UnifiedStack или любую игру из каталога — цифровой сертификат придёт мгновенно.",
+  giftCards: {
+    title: "Подарочные карты Shoply",
+    text: "Электронные подарочные сертификаты номиналом от 1 000 до 30 000 ₽ на покупку наушников, смарт-часов и аксессуаров.",
   },
 };
 
@@ -126,7 +126,7 @@ export default function Footer() {
           gap: "48px",
         }}
       >
-        {/* Левая колонка: Платформа */}
+        {/* Левая колонка: Компания */}
         <div>
           <h4
             style={{
@@ -138,7 +138,7 @@ export default function Footer() {
               borderBottom: "1px solid #3a3a3a",
             }}
           >
-            Платформа
+            Компания
           </h4>
           <div
             style={{ display: "flex", flexDirection: "column", gap: "12px" }}
@@ -148,68 +148,68 @@ export default function Footer() {
               onClick={() => setActiveModal(MODAL_CONTENT.about)}
               style={itemStyle}
             >
-              О платформе UnifiedStack
+              О компании
             </button>
             <a
               href="#market-news"
               onClick={(e) => goToSection(e, "market-news")}
               style={itemStyle}
             >
-              Пульс рынка: чипы и железо
+              Новости рынка: чипы и аудио
             </a>
             <button
               type="button"
-              onClick={() => setActiveModal(MODAL_CONTENT.developers)}
+              onClick={() => setActiveModal(MODAL_CONTENT.partners)}
               style={itemStyle}
             >
-              Разработчикам и издателям игр
+              Партнерам (аренда, сотрудничество)
             </button>
             <button
               type="button"
               onClick={() => setActiveModal(MODAL_CONTENT.vacancies)}
               style={itemStyle}
             >
-              Вакансии в команде
+              Вакансии
             </button>
             <button
               type="button"
               onClick={() => setActiveModal(MODAL_CONTENT.privacy)}
               style={itemStyle}
             >
-              Политика безопасности и защиты аккаунта
+              Политика компании в отношении обработки персональных данных
             </button>
             <button
               type="button"
-              onClick={() => setActiveModal(MODAL_CONTENT.digitalSales)}
+              onClick={() => setActiveModal(MODAL_CONTENT.salesRules)}
               style={itemStyle}
             >
-              Правила покупки цифровых копий
+              Правила продаж
             </button>
             <button
               type="button"
               onClick={() => setActiveModal(MODAL_CONTENT.terms)}
               style={itemStyle}
             >
-              Пользовательское соглашение
+              Правила пользования сайта
             </button>
             <button
               type="button"
               onClick={() => setActiveModal(MODAL_CONTENT.recommendations)}
               style={itemStyle}
             >
-              На платформе применяются рекомендательные технологии
+              На информационном ресурсе применяются рекомендательные технологии
             </button>
             <button
               type="button"
-              onClick={() => setActiveModal(MODAL_CONTENT.serverStatus)}
+              onClick={() => setActiveModal(MODAL_CONTENT.serviceCenters)}
               style={itemStyle}
             >
-              Статус серверов облачного гейминга
+              Сервисные центры
             </button>
           </div>
         </div>
 
-        {/* Правый блок: Игрокам (2 колонки как на скриншоте) */}
+        {/* Правый блок: Покупателям (2 колонки) */}
         <div style={{ gridColumn: "span 2" }}>
           <h4
             style={{
@@ -221,7 +221,7 @@ export default function Footer() {
               borderBottom: "1px solid #3a3a3a",
             }}
           >
-            Игрокам
+            Покупателям
           </h4>
 
           <div
@@ -237,52 +237,52 @@ export default function Footer() {
             >
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.howToBuy)}
+                onClick={() => setActiveModal(MODAL_CONTENT.howToOrder)}
                 style={itemStyle}
               >
-                Как купить игру или подписку
+                Как оформить заказ
               </button>
               <button
                 type="button"
                 onClick={() => setActiveModal(MODAL_CONTENT.payment)}
                 style={itemStyle}
               >
-                Пополнение кошелька и оплата
+                Способы оплаты
               </button>
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.cloudTariffs)}
+                onClick={() => setActiveModal(MODAL_CONTENT.credits)}
                 style={itemStyle}
               >
-                Тарифы облачного гейминга
+                Кредиты и рассрочка
               </button>
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.activation)}
+                onClick={() => setActiveModal(MODAL_CONTENT.delivery)}
                 style={itemStyle}
               >
-                Мгновенная активация
+                Доставка
               </button>
               <a
                 href="/profile"
                 onClick={(e) => goToPage(e, "/profile")}
                 style={itemStyle}
               >
-                Моя библиотека и заказы
+                Статус заказа
               </a>
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.refunds)}
+                onClick={() => setActiveModal(MODAL_CONTENT.warranty)}
                 style={itemStyle}
               >
-                Возврат цифровых копий
+                Обмен, возврат, гарантия
               </button>
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.techSupport)}
+                onClick={() => setActiveModal(MODAL_CONTENT.repairStatus)}
                 style={itemStyle}
               >
-                Проверка пинга и лаунчера
+                Проверка статуса ремонта
               </button>
             </div>
 
@@ -292,59 +292,59 @@ export default function Footer() {
             >
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.cyberClubs)}
+                onClick={() => setActiveModal(MODAL_CONTENT.b2b)}
                 style={itemStyle}
               >
-                Киберспортивным клубам
+                Юридическим лицам
               </button>
               <button
                 type="button"
                 onClick={() => setActiveModal(MODAL_CONTENT.invoiceCheck)}
                 style={itemStyle}
               >
-                Проверка договора клуба
+                Проверка счета
               </button>
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.cyberClubs)}
+                onClick={() => setActiveModal(MODAL_CONTENT.b2b)}
                 style={itemStyle}
               >
-                Турнирные лицензии
+                Корпоративные отделы
               </button>
               <button
                 type="button"
-                onClick={() => setActiveModal(MODAL_CONTENT.giftCodes)}
+                onClick={() => setActiveModal(MODAL_CONTENT.giftCards)}
                 style={itemStyle}
               >
-                Подарочные коды
+                Подарочные карты
               </button>
               <a
                 href="/profile"
                 onClick={(e) => goToPage(e, "/profile")}
                 style={itemStyle}
               >
-                Оформление мини-профиля
+                Бонусная программа и профиль
               </a>
               <a
                 href="#sales"
                 onClick={(e) => goToSection(e, "sales")}
                 style={itemStyle}
               >
-                Скидки и предложения дня
+                Акции и товары дня
               </a>
               <a
                 href="#consultation"
                 onClick={(e) => goToSection(e, "consultation")}
                 style={itemStyle}
               >
-                Поддержка и подбор
+                Подбор гарнитуры и обратная связь
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Нижняя полоса с быстрой навигацией по разделам и кнопкой наверх */}
+      {/* Нижняя полоса с навигацией и кнопкой наверх */}
       <div
         style={{
           maxWidth: "1240px",
@@ -360,7 +360,9 @@ export default function Footer() {
           color: "#94a3b8",
         }}
       >
-        <span>© 2026 UnifiedStack • Игровая платформа и облачный гейминг</span>
+        <span>
+          © 2026 Shoply • Магазин гарнитур, аудиотехники и умных аксессуаров
+        </span>
         <div style={{ display: "flex", gap: "18px", alignItems: "center" }}>
           <a
             href="#catalog"
@@ -375,13 +377,6 @@ export default function Footer() {
             style={{ color: "#94a3b8", textDecoration: "none" }}
           >
             Категории
-          </a>
-          <a
-            href="/profile"
-            onClick={(e) => goToPage(e, "/profile")}
-            style={{ color: "#94a3b8", textDecoration: "none" }}
-          >
-            Профиль
           </a>
           <button
             type="button"
