@@ -8,6 +8,7 @@ import SaleConveyorWidget from "@/components/SaleConveyorWidget";
 import DailyCultConveyor from "@/components/DailyCultConveyor";
 import ProductIcon from "@/components/ProductIcon";
 import CatalogSkeleton from "@/components/CatalogSkeleton";
+import ConsultationBlock from "@/components/ConsultationBlock";
 
 const CATEGORIES = [
   {
@@ -660,6 +661,8 @@ export default function HomePage() {
         <Suspense fallback={<CatalogSkeleton />}>
           <InteractiveShopSection />
         </Suspense>
+
+        <ConsultationBlock />
       </div>
 
       <SaleConveyorWidget />
