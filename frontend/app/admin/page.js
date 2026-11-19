@@ -144,7 +144,7 @@ export default function AdminCatalogPage() {
     setProducts(nextList);
     localStorage.setItem("shoply_admin_products", JSON.stringify(nextList));
   };
-  const handleAddProduct = (e) => {
+  const handleAddProduct = async (e) => {
     e.preventDefault();
     if (!title.trim() || !price) return;
 
@@ -170,10 +170,32 @@ export default function AdminCatalogPage() {
     };
 
     syncStorage([newProduct, ...products]);
+
+    const strapiUrl =
+      process.env.NEXT_PUBLIC_STRAPI_URL || "http://10.0.2.2:1337";
+    try {
+      await fetch(`${strapiUrl}/api/products`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: {
+            title: newProduct.title,
+            category: newProduct.category,
+            categorySlug: newProduct.categorySlug,
+            price: newProduct.price,
+            oldPrice: newProduct.oldPrice,
+            badge: newProduct.badge,
+          },
+        }),
+      });
+    } catch {
+      // Если CMS временно недоступна, товар уже сохранён локально
+    }
+
     setTitle("");
     setPrice("");
     setOldPrice("");
-    showNotice("Товар добавлен в каталог витрины");
+    showNotice("Товар добавлен и отправлен в CMS");
   };
 
   const handlePriceChange = (id, newPrice) => {

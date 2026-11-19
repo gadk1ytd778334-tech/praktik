@@ -759,6 +759,25 @@ export default function HomePage() {
         }}
       >
         Личный кабинет
+        <Link
+          href="/admin"
+          style={{
+            position: "fixed",
+            bottom: "120px",
+            left: "24px",
+            zIndex: 9990,
+            background: "#059669",
+            color: "#ffffff",
+            borderRadius: "999px",
+            padding: "10px 16px",
+            fontSize: "13px",
+            fontWeight: "700",
+            textDecoration: "none",
+            boxShadow: "0 10px 25px rgba(5, 150, 105, 0.35)",
+          }}
+        >
+          Админ-панель
+        </Link>
       </Link>
 
       {toastText && (
