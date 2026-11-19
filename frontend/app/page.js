@@ -94,7 +94,7 @@ const PRODUCTS = [
   },
   {
     id: 4,
-    slug: "studio-pro",
+    slug: "soundbar-mini",
     title: "Акустика SoundBar Mini",
     category: "НАУШНИКИ",
     categorySlug: "headphones",
@@ -110,7 +110,7 @@ const PRODUCTS = [
   },
   {
     id: 5,
-    slug: "gan-65w",
+    slug: "usb-cable-100w",
     title: "Кабель USB-C 100W Nylon",
     category: "АКСЕССУАРЫ",
     categorySlug: "accessories",

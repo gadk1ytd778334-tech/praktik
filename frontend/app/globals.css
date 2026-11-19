@@ -1088,3 +1088,29 @@ html.dark-theme aside a[style*="background: rgb(79, 70, 229)"] {
   background-color: #4f46e5 !important;
   color: #ffffff !important;
 }
+html.dark-theme article div[style*="font-size: 20px"],
+html.dark-theme article div[style*="fontSize: '20px'"] {
+  color: #ffffff !important;
+}
+/* Адаптация детальной страницы товара под тёмную тему */
+html.dark-theme main > div[style*="background: #ffffff"],
+html.dark-theme main > div[style*="background: rgb(255, 255, 255)"] {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+html.dark-theme main div[style*="background: #f8fafc"],
+html.dark-theme main div[style*="background: rgb(248, 250, 252)"] {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+html.dark-theme main h1 {
+  color: #f8fafc !important;
+}
+
+html.dark-theme main p[style*="color: #475569"],
+html.dark-theme main p[style*="color: rgb(71, 85, 105)"] {
+  color: #cbd5e1 !important;
+}
