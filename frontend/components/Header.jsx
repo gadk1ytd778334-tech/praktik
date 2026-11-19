@@ -13,10 +13,11 @@ function SearchForm() {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    window.dispatchEvent(new CustomEvent("shoply-search", { detail: query }));
     if (query.trim()) {
-      router.push(`/?q=${encodeURIComponent(query)}`);
+      router.push(`/?q=${encodeURIComponent(query)}#catalog`);
     } else {
-      router.push("/");
+      router.push("/#catalog");
     }
   };
 
@@ -27,9 +28,20 @@ function SearchForm() {
         className="search__input"
         placeholder="Поиск товаров..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          const val = e.target.value;
+          setQuery(val);
+          window.dispatchEvent(
+            new CustomEvent("shoply-search", { detail: val })
+          );
+        }}
       />
-      <button type="submit" className="search__btn" aria-label="Поиск">
+      <button
+        type="submit"
+        className="search__btn"
+        aria-label="Поиск"
+        style={{ color: "inherit" }}
+      >
         <svg
           width="16"
           height="16"

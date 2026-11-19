@@ -146,6 +146,13 @@ function InteractiveShopSection() {
     );
   };
   const [catalogProducts, setCatalogProducts] = useState(PRODUCTS);
+  useEffect(() => {
+    const onHeaderSearch = (e) => {
+      setOverrideSearch(e.detail ?? "");
+    };
+    window.addEventListener("shoply-search", onHeaderSearch);
+    return () => window.removeEventListener("shoply-search", onHeaderSearch);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem("shoply_admin_products");
